@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Weather App</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <style>
+            body {
+                background-color: azure;
+                font-family: fantasy;
+            }
+            table {
+                margin: 0 auto;
+            }
+            #footer {
+                background-color: black;
+                color: blanchedalmond;
+                margin-top: 10%;
+                padding: 4%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="text-center mt-5 mb-5">Welcome to Weather App</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <p>Note: The First Letter Should Be Capital</p>
+                        <form action="/results" method="GET" style="width: 90%; margin: 0 auto;">
+                            <div class="form-group">    
+                                <input class="form-control" type="text" placeholder="Enter City Name" name="city">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control btn-success" type="submit" value="Go">
+                            </div> 
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <% if(typeof(city) == "undefined") { %>
+                            <p>&diamond; Search the city &diamond;</p>
+                        <% } else { %>
+                            <h3> <%= city %> </h3>
+                            <table class="table">
+                                <tr>
+                                    <th>Temperature</th>
+                                    <td><%= data["temperature"] %></td>
+                                </tr>
+                                <tr>
+                                    <th>Wind</th>
+                                    <td><%= data["wind"] %></td>
+                                </tr>
+                                <tr>
+                                    <th>Description</th>
+                                    <td><%= data["description"] %></td>
+                                </tr>
+                            </table>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer">
+            <div class="container text-center">
+                Made with &hearts; by Dhruv Solanki
+            </div>
+        </div>
+    </body>
+</html>
+        
